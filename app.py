@@ -10,16 +10,20 @@ st.set_page_config(
 
 st.title("Get Financial Data")
 
-st.text("This app is providing you the raw financial data from Excel files of Data Providers (such as Informa or Pappers).")
+st.markdown(f"""
+    This app is providing you the raw financial data from Excel files of Data Providers (such as Informa or Pappers).
+    
+    Please make sure that name of excel files are RegistrationNumber_Year.xlsx, for example: 12345678A_2024.xlsx.
+""")
 
-
-registration_number = st.text_input(
+col1, col2 = st.columns(2)
+registration_number = col1.text_input(
     "Company registration number",
     placeholder="Example: 12345678A",
     help="Enter the company registration number before uploading files.",
 )
 
-data_source = st.selectbox(
+data_source = col2.selectbox(
     "Data source",
     options=["Informa", "Pappers"],
     help="Select the provider for the uploaded financial data files.",
